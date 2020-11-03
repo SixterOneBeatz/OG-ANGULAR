@@ -1,0 +1,57 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModal"
+  data-keybord="false" (click)="addClick()">
+  Agregar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-persona-add-edit (childEvent)="closeModal()" [inPersona]="persona" [eliminar]="isDeleteAction" *ngIf="ActivateAddEditPersonaComp"></app-persona-add-edit>
+      </div>
+    </div>
+  </div>
+</div>
+<table class="table table-stripped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Apellido Paterno</th>
+      <th>Apellido Materno</th>
+      <th>Edad</th>
+      <th>Estatura</th>
+      <th>Peso</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of ListPersonas">
+      <td>{{p.id}}</td>
+      <td>{{p.nombre}}</td>
+      <td>{{p.ap}}</td>
+      <td>{{p.am}}</td>
+      <td>{{p.edad}}</td>
+      <td>{{p.estatura}}</td>
+      <td>{{p.peso}}</td>
+      <td>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+          data-keybord="false" (click)="editClick(p)">Editar
+        </button>
+      </td>
+      <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"
+        data-keybord="false" (click)="deleteClick(p)">Eliminar
+      </button></td>
+    </tr>
+  </tbody>
+</table>

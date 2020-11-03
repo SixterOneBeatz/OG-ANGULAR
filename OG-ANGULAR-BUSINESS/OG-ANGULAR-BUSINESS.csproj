@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>OG_ANGULAR_BUSINESS</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OG-ANGULAR-DATA\OG-ANGULAR-DATA.csproj" />
+  </ItemGroup>
+
+</Project>
